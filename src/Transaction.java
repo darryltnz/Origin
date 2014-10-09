@@ -6,13 +6,13 @@ import java.util.Date; // import the use of date objects
  */
 public class Transaction {
 
-Date date; // date field to hold when this transaction happened
+private Date date; // date field to hold when this transaction happened
 
-String stockName; // stock name that the transaction applies to
+private String stockName; // stock name that the transaction applies to
 
-Double price; // price for each stock in the transaction
+private Double price; // price for each stock in the transaction
 
-int quantity; // quantity of stocks purchased in this transaction
+private int quantity; // quantity of stocks purchased in this transaction
 
 /* Constructor that takes the stock, the amount, the price and the date that 
  * the transaction relates to as arguments
@@ -45,5 +45,9 @@ public Date getDate() {
 	
 }
 
+public Double getPrice() {
+	
+	return price;
+}
 
 }

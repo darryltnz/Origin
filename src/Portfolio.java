@@ -9,11 +9,11 @@ import java.util.Date; // import the use of Date objects
  */
 public class Portfolio { 
 
-int userId; // holds the user id of the account associated with this portfolio
+private int userID; // holds the user id of the account associated with this portfolio
 
-String name; // a name for the portfolio
+private String name; // a name for the portfolio
 
-ArrayList<Stock> listOfStocks; // ArrayList to hold the stocks in the portfolio
+public ArrayList<Stock> listOfStocks; // ArrayList to hold the stocks in the portfolio
 
 //Trading_Strategy tradingStrategy; // trading strategy currently applied to this portfolio
 
@@ -22,7 +22,7 @@ ArrayList<Stock> listOfStocks; // ArrayList to hold the stocks in the portfolio
  */
 public Portfolio (int user, String inName, String tradeStrat) {
 	
-	userId = user; // set the user id the portfolio is to be associated with
+	userID = user; // set the user id the portfolio is to be associated with
 	
 	name = inName; // set the name of the portfolio
 	
@@ -42,7 +42,7 @@ public boolean doesExist (String stock) {
   for(Stock s : listOfStocks) { // go through all the stocks in the portfolio
 	  
 	  
-	  if(s.stockID.equals(stock)) { // if the stock name can be found
+	  if(s.getStockID().equals(stock)) { // if the stock name can be found
 		  test = true; // set the test variable to be true
 	  }
   }
@@ -80,7 +80,7 @@ public Stock getStock(String inStockID) {
 	
 	for(Stock s: listOfStocks) { // go through the stocks in the portfolio
 		
-		if(s.stockID.equals(inStockID)) { // if the stock's name is the one we want
+		if(s.getStockID().equals(inStockID)) { // if the stock's name is the one we want
 			
 			output = s; // copy it to the return variable
 			
@@ -103,4 +103,16 @@ public void addStock(Stock inStock) {
 	listOfStocks.add(inStock); // add the stock passed in to the ArrayList of stocks
 	
 }
+
+// Get methods for fields
+public String getName() {
+	
+	return name;
+}
+
+public int getuserID() {
+	
+	return userID;
+}
+
 }

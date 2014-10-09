@@ -21,7 +21,7 @@ public final class PurchasingController {
 		
 		for(Stock s : myPort.listOfStocks) { // go through the stocks currently in the portfolio provided
 			
-			if (s.stockID.equals(inStockID)) { // if the stock is in the portfolio already
+			if (s.getStockID().equals(inStockID)) { // if the stock is in the portfolio already
 				
 				Transaction newBuy = new Transaction(inStockID, amount, value, today); // make a new transaction for the stock based on the input value
 				
@@ -55,9 +55,9 @@ public final class PurchasingController {
 		
 		for(Stock s : myPort.listOfStocks) { // find the stock in the portfolio to remove the quantity from
 		
-			if (s.stockID.equals(inStockID)) { // if the stock exists in the portfolio
+			if (s.getStockID().equals(inStockID)) { // if the stock exists in the portfolio
 		
-			if(  s.quantity > amount) { // if the amount to sell is less than the amount of stock the user owns
+			if(  s.getQuantity() > amount) { // if the amount to sell is less than the amount of stock the user owns
 				
 			 purchaseStock(inStockID, myPort, amount, value);
 				
@@ -65,7 +65,7 @@ public final class PurchasingController {
 				
 			}
 				
-			else if (s.quantity == amount) { // if the user is selling all of the stocks for a given stock
+			else if (s.getQuantity() == amount) { // if the user is selling all of the stocks for a given stock
 				  
 				  myPort.listOfStocks.remove(s); // remove the stock from the portfolio
 				  

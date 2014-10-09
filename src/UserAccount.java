@@ -4,21 +4,17 @@ public class UserAccount {
 
 	int UID; // user id field 
 	
-	String playerName; // String for the player's chosen name
+	private String playerName; // String for the player's chosen name
 	
-	String email; // email field for the user
+	private String email; // email field for the user
+	 
+	private String username; // string to hold the user name the user has selected 
 	
-	String username; // string to hold the user name the user has selected 
+	private String password; // password field 
 	
-	String password; // password field 
+	private double balance; // balance that the user currently has on their account 
 	
-	double balance; // balance that the user currently has on their account 
-	
-	double gainLoss; // field to hold if they have made a gain or loss
-	
-	PurchasingController purchaser; // object to handle each users purchases and sales of stock
-	
-	StockDataInterface stockRef; // stock data interface for providing info about stocks to the user account
+	private double gainLoss; // field to hold if they have made a gain or loss
 	
 	ArrayList<Portfolio> portfolios; // list of portfolios that the user has under their account
 	
@@ -67,7 +63,7 @@ public void buyStock (String symbol, String portfolio, int amount) {
 		
 	for(Portfolio p : portfolios) { // go through the portfolios currently active in this account
 		
-		if(p.name.equals(portfolio)) { // find the correct portfolio
+		if(p.getName().equals(portfolio)) { // find the correct portfolio
 					
 			PurchasingController.purchaseStock(symbol, p, amount, sellPrice); // pass in the portfolio, the stock name, the quantity and the current price to the purchasing controller
 			
@@ -92,7 +88,7 @@ public void sellStock(String symbol, String portfolio, int amount) {
 		
 		for(Portfolio p : portfolios) { // find the supplied portfolio
 		
-			if(p.name.equals(portfolio)) {
+			if(p.getName().equals(portfolio)) {
 				
 				PurchasingController.sellStock(symbol, p, amount, sellPrice); // get the purchase/sale controller to handle the sale
 				
@@ -108,6 +104,37 @@ public void sellStock(String symbol, String portfolio, int amount) {
 }
 
 
+}
+
+// get methods for the fields
+public String getPlayerName() {
+	
+	return playerName;
+}
+
+public String getEmail() {
+	
+	return email;
+}
+
+public String getPassword() {
+	
+	return password;
+}
+
+public String getUsername() {
+	
+	return username;
+}
+
+public Double getBalance() {
+	
+	return balance;
+}
+
+public Double getGainLoss() {
+	
+	return gainLoss;
 }
 
 }

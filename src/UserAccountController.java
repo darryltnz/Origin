@@ -27,11 +27,11 @@ public final class UserAccountController {
 		
 		if (accountMap.containsKey(username)) { // if the user name is in the collection
 			
-			if (accountMap.get(username).password.equals(password)){ // if the selected user name corresponds to the supplied password
+			if (accountMap.get(username).getPassword().equals(password)){ // if the selected user name corresponds to the supplied password
 				
 				System.out.println("Login successful."); // display confirmation message
 				
-				System.out.println(accountMap.get(username).balance);
+				System.out.println(accountMap.get(username).getBalance());
 				
 			}
 			

@@ -6,11 +6,11 @@ import java.util.ArrayList; // import the use of arrayLists
  */
 public class Stock {
 	
-	ArrayList <Transaction> transactionList; // list of transactions for the stock
+	private ArrayList <Transaction> transactionList; // list of transactions for the stock
 	
-	int quantity; // current quantity
+	private int quantity; // current quantity
 	
-	String stockID; // stock name/id
+	private String stockID; // stock name/id
 	
 /* Constructor that takes an initial transaction for the stock as an argument
  */
@@ -59,5 +59,14 @@ if (quantity >= amount) {
 	
 }
 
+// get methods for fields
+public String getStockID() {
+	
+	return stockID;
+}
 
+public int getQuantity() {
+	
+	return quantity;
+}
 }

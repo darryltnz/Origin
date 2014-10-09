@@ -69,4 +69,69 @@ public int getQuantity() {
 	
 	return quantity;
 }
+
+// method to get the total current value of our stock
+public double calculateValue() {
+	
+	double value = StockDataInterface.getCurrentPrice(); // get the stock price currently
+	
+	return (value * quantity); // get the total for the amount of stock we have
+	
+	
+}
+
+//method to get the current price of one stock
+public double calculatePrice() {
+	
+	return StockDataInterface.getCurrentPrice(); // return the current price of the stock
+	
+	
+	
+	
+}
+
+// method to get the average price paid for a stock
+public double calculateCost() {
+	
+	if(transactionList.size() > 0) {
+		
+	double value = 0; // running variable
+	
+	for(Transaction t : transactionList) { // go through all the transactions for the stock
+		
+		
+		value += t.getPrice(); // add the price paid in each transaction
+	}
+	
+	double outValue = (value/transactionList.size()); // calculate the average
+	
+	return outValue; // return the average
+	
+}
+	else return 0; // if their are no transaction return zero
+}
+
+//method to get the average price paid for a stock
+public double calculateDifference() {
+	
+	if(transactionList.size() > 0) {
+		
+	double value = 0; // running variable
+	
+	for(Transaction t : transactionList) { // go through all the transactions for the stock
+		
+		
+		value += (StockDataInterface.getCurrentPrice() - t.getPrice()); // add the current price minus the price paid in each transaction
+	}
+	
+	double outValue = (value/transactionList.size()); // calculate the average
+	
+	return outValue; // return the average
+	
+}
+	else return 0; // if their are no transaction return zero
+}
+
+
+
 }

@@ -57,7 +57,7 @@ public void createPortfolio(String inName, String tradeStrat) {
  */
 public void buyStock (String symbol, String portfolio, int amount) {
 	
-	Double sellPrice = StockDataInterface.getCurrentPrice(); // get the current price of the stock from the interface (Simulation of the API)
+	double sellPrice = StockDataInterface.getCurrentPrice(); // get the current price of the stock from the interface (Simulation of the API)
 	
 	if (StockDataInterface.doesExist(symbol)) { // if the stock is in our list of stocks we can buy or sell
 		
@@ -82,7 +82,7 @@ public void buyStock (String symbol, String portfolio, int amount) {
  */
 public void sellStock(String symbol, String portfolio, int amount) {
 	
-	Double sellPrice = StockDataInterface.getCurrentPrice(); // get the current price of the stock (Simulating the API)
+	double sellPrice = StockDataInterface.getCurrentPrice(); // get the current price of the stock (Simulating the API)
 	
 	if (StockDataInterface.doesExist(symbol)) { // if the stock the user has supplied to sell is in the list we offer
 		
@@ -127,12 +127,12 @@ public String getUsername() {
 	return username;
 }
 
-public Double getBalance() {
+public double getBalance() {
 	
 	return balance;
 }
 
-public Double getGainLoss() {
+public double getGainLoss() {
 	
 	return gainLoss;
 }

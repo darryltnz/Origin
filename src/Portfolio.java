@@ -15,7 +15,7 @@ private String name; // a name for the portfolio
 
 public ArrayList<Stock> listOfStocks; // ArrayList to hold the stocks in the portfolio
 
-//Trading_Strategy tradingStrategy; // trading strategy currently applied to this portfolio
+//private TradingStrategy tradingStrategy; // trading strategy currently applied to this portfolio
 
 /* Portfolio constructor that takes a user id, a string that names the portfolio
  * and a string that identifies the trading strategy to be used for the portfolio
@@ -52,7 +52,7 @@ public boolean doesExist (String stock) {
 
 /* Method that creates a Stock object with a transaction amount at the current value for the stock
  */
-public void createStock(String stock, int amount, Double value) {
+public void createStock(String stock, int amount, double value) {
 	
 	Date today = new Date(); // get todays date
 	
@@ -67,7 +67,7 @@ public void createStock(String stock, int amount, Double value) {
 /*
 public void updateStrategy(String newStrat) {
 	
-	tradingStrategy = new Trading_Strategy(newStrat);
+	tradingStrategy = new TradingStrategy(newStrat);
 	
 }
 */
@@ -110,7 +110,7 @@ public String getName() {
 	return name;
 }
 
-public int getuserID() {
+public int getUserID() {
 	
 	return userID;
 }

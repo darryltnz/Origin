@@ -43,7 +43,7 @@ private StockDataInterface () {
 }
 /* get a simulated stock price as a Double
  */
-public static  Double getCurrentPrice() {
+public static  double getCurrentPrice() {
 	
 	
 	return rand.nextDouble() * 100; // return a random value between 0 and 1, times 100

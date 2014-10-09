@@ -5,25 +5,29 @@
 	 */
 public final class UserAccountController {
 
-	static int UID = 0; // set the user id incremental field for each instance of an account at zero
+	private static int UID = 0; // set the user id incremental field for each instance of an account at zero
 	
-	static HashMap<String, UserAccount> accountMap = new HashMap<String, UserAccount>(); // hash map to hold user accounts that have been created
+	private static HashMap<String, UserAccount> accountMap = new HashMap<String, UserAccount>(); // hash map to hold user accounts that have been created
 	
 	/* Method to make a user account. The player's chosen name, email address, user name, password and initial starting balance are passed in as arguments
 	 */
-	static void createAccount(String playerName, String email, String username, String password, double initBalance){
+	static UserAccount createAccount(String playerName, String email, String username, String password, double initBalance){
 		
 		UserAccount account=new UserAccount(UID, playerName, email, username, password, initBalance); // make a new user account from the passed in details
 		
 		accountMap.put(username, account); // add the account to the collection
 		
 		UID ++; //increment the user id count
+		
+		return account;
 	}
 	
 	/* Check credentials method that takes a user name and password as arguments and checks whether there is a user account under these credentials
 	 * stored in the controller (This is where a data base will need to be implemented)
 	 */
-	static void checkCredential(String username, String password){
+	static boolean checkCredentials(String username, String password){
+		
+		boolean test = false;
 		
 		if (accountMap.containsKey(username)) { // if the user name is in the collection
 			
@@ -33,6 +37,7 @@ public final class UserAccountController {
 				
 				System.out.println(accountMap.get(username).getBalance());
 				
+				test = true;
 			}
 			
 			else{ // otherwise inform the user the credentials supplied were not valid
@@ -42,9 +47,12 @@ public final class UserAccountController {
 			}
 		}
 		
-		else // if the user name is not in the collection 
+		else { // if the user name is not in the collection 
 			
 			System.out.println("User not found."); // display an error message
+		}
+		return test;
+	
 	}
 	
 }

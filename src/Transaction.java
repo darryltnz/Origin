@@ -10,14 +10,14 @@ private Date date; // date field to hold when this transaction happened
 
 private String stockName; // stock name that the transaction applies to
 
-private Double price; // price for each stock in the transaction
+private double price; // price for each stock in the transaction
 
 private int quantity; // quantity of stocks purchased in this transaction
 
 /* Constructor that takes the stock, the amount, the price and the date that 
  * the transaction relates to as arguments
  */
-public Transaction(String symbol, int amount, Double priceIn, Date inDate) {
+public Transaction(String symbol, int amount, double priceIn, Date inDate) {
 	
 	stockName = symbol; // set the stock name for the transaction
 	
@@ -45,7 +45,7 @@ public Date getDate() {
 	
 }
 
-public Double getPrice() {
+public double getPrice() {
 	
 	return price;
 }

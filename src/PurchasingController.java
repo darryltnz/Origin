@@ -15,7 +15,7 @@ public final class PurchasingController {
 	/* Method to purchase a given amount of a certain stock. The stock to buy, its price, the amount of 
 	 * the stock to buy and the portfolio that the stock purchase is to belong to are provided as arguments
 	 */
-	public static void purchaseStock (String inStockID, Portfolio myPort, int amount, Double value) {
+	public static void purchaseStock (String inStockID, Portfolio myPort, int amount, double value) {
 		
 		Date today = new Date(); // get todays date as the transaction date
 		
@@ -49,7 +49,7 @@ public final class PurchasingController {
      * by calling the purchasestock method but with a negative value, so if there will still be a
      * positive quantity of the stock amount after the transaction
      */
-	public static void sellStock (String inStockID, Portfolio myPort, int amount, Double value) {
+	public static void sellStock (String inStockID, Portfolio myPort, int amount, double value) {
 		
 		value = (value * -1);
 		

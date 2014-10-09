@@ -22,8 +22,12 @@ public class TradingStrategy {
 		ruleList = rl;
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
 	public UserAccount getUserAccount(){
-		return UserAccount;
+		return user;
 	}
 
 	public int getNumberRules() {

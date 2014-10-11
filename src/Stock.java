@@ -18,6 +18,8 @@ public Stock(Transaction initialTrans) {
 	
 	stockID = initialTrans.getStockID(); // set the stocks name from the input transaction
 	
+	transactionList = new ArrayList<Transaction>(); // create the list
+	
 	transactionList.add(initialTrans); // add the transaction to the list of transactions for the stock
 	
 	quantity = initialTrans.getQuantity();	 // update the quantity as per the transaction

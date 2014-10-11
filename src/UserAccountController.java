@@ -55,4 +55,20 @@ public final class UserAccountController {
 	
 	}
 	
+public static UserAccount returnAccount(String username) {
+	
+	UserAccount output = accountMap.get(username);
+	
+	if(output != null) {
+		
+		return output;
+	}
+	
+	else {
+		
+		return null;
+	}
+	
+}
+
 }

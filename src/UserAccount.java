@@ -45,9 +45,9 @@ public class UserAccount {
 	/* Method to create a new portfolio for the account which is identified by a unique name and a trading strategy which will operate 
 	 * on the portfolio
 	 */
-public void createPortfolio(String inName, String tradeStrat) {
+public void createPortfolio(String inName) {
 	
-	Portfolio newPort = new Portfolio(UID,inName, tradeStrat); // create a new portfolio passing in the account id, the chosen name of the portfolio and a String identifying the chosen trading strategy
+	Portfolio newPort = new Portfolio(UID,inName); // create a new portfolio passing in the account id, the chosen name of the portfolio and a String identifying the chosen trading strategy
 	
 	portfolios.add(newPort); // add this new portfolio to the list of portfolios for the account
 	
@@ -104,6 +104,65 @@ public void sellStock(String symbol, String portfolio, int amount) {
 }
 
 
+}
+
+/* Method to get all of the names of the trading strategies currently
+ * available for the user as strings to display
+ */
+public ArrayList<String> getAvailabeStrategies() {
+	
+	
+	
+	ArrayList<String> output = new ArrayList<String>();
+	
+	for(TradingStrategy ts : TradingStrategyController.getAvailableStrategies(username) ) {
+		
+		output.add(ts.getName());
+		
+		
+	}
+	
+	return output;
+}
+
+/* Update a portfolio's trading strategy by passing in a String as a 
+ * key. If that string corresponds to the name of a strategy set
+ * up for this account, pass it to the portfolio to update along with 
+ * the username of the account
+ */
+public void updateStrategy (String portfolio, String strat) {
+	
+	for(String s : getAvailabeStrategies()) {
+		
+		if(s.equals(strat)) {
+			
+			for(Portfolio p : portfolios) {
+				
+				if(p.getName().equals(portfolio)) {
+					
+					p.updateStrategy(strat, username);
+				}
+			}
+			
+		}
+	}
+}
+
+/* Create and set a newly defined trading strategy for a given portfolio
+ * by passing in the portfolio name to set the strategy for, the new 
+ * strategy name, a list of rules for the strategy and the username of
+ * the account the strategy can be used with.
+ */
+public void setStrategy (String portfolio, String strat, ArrayList<String> rules) {
+	
+	for(Portfolio p : portfolios) {
+		
+		if(p.getName().equals(portfolio)) {
+			
+			p.setStrategy(strat, username, rules);
+		}
+	}
+	
 }
 
 // get methods for the fields

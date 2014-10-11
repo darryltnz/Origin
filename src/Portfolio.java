@@ -15,12 +15,12 @@ private String name; // a name for the portfolio
 
 public ArrayList<Stock> listOfStocks; // ArrayList to hold the stocks in the portfolio
 
-//private TradingStrategy tradingStrategy; // trading strategy currently applied to this portfolio
+private TradingStrategy tradingStrategy; // trading strategy currently applied to this portfolio
 
 /* Portfolio constructor that takes a user id, a string that names the portfolio
  * and a string that identifies the trading strategy to be used for the portfolio
  */
-public Portfolio (int user, String inName, String tradeStrat) {
+public Portfolio (int user, String inName) {
 	
 	userID = user; // set the user id the portfolio is to be associated with
 	
@@ -28,7 +28,7 @@ public Portfolio (int user, String inName, String tradeStrat) {
 	
 	listOfStocks = new ArrayList<Stock>(); // initialise the listOfStocks
 	
-	//tradingStrategy = new Trading_Strategy(tradeStrat);
+	tradingStrategy = TradingStrategyController.returnDefault();
 	
 }
 
@@ -64,13 +64,37 @@ public void createStock(String stock, int amount, double value) {
 	
 	
 }
-/*
-public void updateStrategy(String newStrat) {
+/* Method to create a new trading strategy for the portfolio that will be added to the list of available 
+ * trading strategies for the portfolio as well as setting the TradingStrategy for the portfolio
+ * to the newly created Trading Strategy 
+ */
+public void setStrategy(String newStrat,String username, ArrayList<String> ruleList) {
 	
-	tradingStrategy = new TradingStrategy(newStrat);
+	if(TradingStrategyController.createTradingStrategy(newStrat, username, ruleList)) {
+		
+		
+		tradingStrategy = TradingStrategyController.returnStrategy(newStrat);
+	}
 	
 }
-*/
+
+/* Method to update the trading strategy for the portfolio 
+ */
+public void updateStrategy(String strat, String user) {
+	
+	for(TradingStrategy ts : TradingStrategyController.getAvailableStrategies(user)  ) {
+		
+		if(ts.getName().equals(strat)) {
+			
+			tradingStrategy = TradingStrategyController.returnStrategy(strat);
+			
+			return;
+		}
+	}
+	
+}
+
+
 
 /* Method that returns a stock from the portfolio identified by a String. 
  */
@@ -113,6 +137,11 @@ public String getName() {
 public int getUserID() {
 	
 	return userID;
+}
+
+public TradingStrategy getTradingStrategy() {
+	
+	return tradingStrategy;
 }
 
 }

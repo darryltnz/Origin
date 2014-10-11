@@ -114,17 +114,11 @@ public double calculateDifference() {
 	
 	if(transactionList.size() > 0) {
 		
-	double value = 0; // running variable
-	
-	for(Transaction t : transactionList) { // go through all the transactions for the stock
-		
-		
-		value += (StockDataInterface.getCurrentPrice() - t.getPrice()); // add the current price minus the price paid in each transaction
-	}
-	
-	double outValue = (value/transactionList.size()); // calculate the average
-	
-	return outValue; // return the average
+    double current = calculateValue();
+    
+    double cost= calculateCost();
+    
+    return (current - cost);
 	
 }
 	else return 0; // if their are no transaction return zero

@@ -100,12 +100,10 @@ public double calculateCost() {
 	for(Transaction t : transactionList) { // go through all the transactions for the stock
 		
 		
-		value += t.getPrice(); // add the price paid in each transaction
+		value += (t.getPrice() * t.getQuantity()); // add the price paid in each transaction
 	}
 	
-	double outValue = (value/transactionList.size()); // calculate the average
-	
-	return outValue; // return the average
+	return value; // return the average
 	
 }
 	else return 0; // if their are no transaction return zero

@@ -17,6 +17,8 @@ public final class PurchasingController {
 	 */
 	public static void purchaseStock (String inStockID, Portfolio myPort, int amount, double value) {
 		
+		if(StockDataInterface.doesExist(inStockID)) {
+		
 		Date today = new Date(); // get todays date as the transaction date
 		
 		for(Stock s : myPort.listOfStocks) { // go through the stocks currently in the portfolio provided
@@ -30,8 +32,10 @@ public final class PurchasingController {
 				return; // exit the method
 				
 			}
-		
 		}
+		
+		
+		
 		
 		 Transaction newBuy = new Transaction(inStockID, amount, value, today); // make a new transaction based on the input values
 		
@@ -40,6 +44,7 @@ public final class PurchasingController {
 		myPort.addStock(newStock); // add the new stock to the portfolio
 		
 		return;
+		}
 	}
     /* Method to sell and/or remove the given amount of stock from an input portfolio, at a given rate
      * by calling the purchasestock method but with a negative value, so if there will still be a
@@ -47,6 +52,7 @@ public final class PurchasingController {
      */
 	public static void sellStock (String inStockID, Portfolio myPort, int amount, double inValue) {
 			
+		if(StockDataInterface.doesExist(inStockID)) {
 		
 		for(Stock s : myPort.listOfStocks) { // find the stock in the portfolio to remove the quantity from
 		
@@ -89,7 +95,7 @@ public final class PurchasingController {
 			
 		}
 		
-		
+		}
 		
 	}
 

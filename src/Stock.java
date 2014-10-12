@@ -139,6 +139,10 @@ public double calculateDifference() {
 	else return 0; // if their are no transaction return zero
 }
 
+public ArrayList<Transaction> getTransactionList() {
+	
+	return transactionList;
+}
 
 
 }

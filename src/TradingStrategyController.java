@@ -8,14 +8,14 @@ import java.util.ArrayList;
  */
 
 public class TradingStrategyController {
-	
+
 	private static ArrayList<String> defaultRuleList = new ArrayList<String>();
-	
-	private static	TradingStrategy defaultStrategy = new TradingStrategy("default",defaultRuleList);
+
+	private static TradingStrategy defaultStrategy = new TradingStrategy(
+			"default", defaultRuleList);
 
 	// List of all known trading strategies - will be replaced with database
 	private static ArrayList<TradingStrategy> strategyList = new ArrayList<TradingStrategy>();
-
 
 	private static boolean validStrategy(String n, ArrayList<String> ruleList) {
 
@@ -35,10 +35,9 @@ public class TradingStrategyController {
 
 	public static boolean createTradingStrategy(String name, String username,
 			ArrayList<String> ruleList) {
-		
+
 		initialise();
-		
-		
+
 		UserAccount user = UserAccountController.returnAccount(username);
 
 		// Check rules are all valid
@@ -69,9 +68,9 @@ public class TradingStrategyController {
 
 	public static boolean createDefaultTradingStrategy(String name,
 			ArrayList<String> ruleList) {
-		
+
 		initialise();
-		
+
 		// Check ts name is unique
 		boolean uniqueName = true;
 
@@ -97,11 +96,11 @@ public class TradingStrategyController {
 	// Returns a list of strategies available to a user
 	public static ArrayList<TradingStrategy> getAvailableStrategies(
 			String username) {
-		
+
 		initialise();
-		
+
 		UserAccount user = UserAccountController.returnAccount(username);
-		
+
 		ArrayList<TradingStrategy> available = new ArrayList<TradingStrategy>();
 
 		for (TradingStrategy ts : strategyList) {
@@ -120,37 +119,37 @@ public class TradingStrategyController {
 
 		return available;
 	}
-	
-public static TradingStrategy returnDefault() {
-	
-	initialise();
-	
-	return defaultStrategy;
-}
 
-public static TradingStrategy returnStrategy(String name) {
-	
-	initialise();
-	
-	TradingStrategy output = null;
-	
-	for(TradingStrategy ts : strategyList) {
-		
-		if(ts.getName().equals(name)) {
-			
-			output =  ts;
-		}
-		
+	public static TradingStrategy returnDefault() {
+
+		initialise();
+
+		return defaultStrategy;
 	}
 
-return output;
-}
+	public static TradingStrategy returnStrategy(String name) {
 
-public static void initialise() {
-	
-	strategyList.add(defaultStrategy);
-	strategyList.add(defaultStrategy);
-	
-}
+		initialise();
+
+		TradingStrategy output = null;
+
+		for (TradingStrategy ts : strategyList) {
+
+			if (ts.getName().equals(name)) {
+
+				output = ts;
+			}
+
+		}
+
+		return output;
+	}
+
+	public static void initialise() {
+
+		strategyList.add(defaultStrategy);
+		strategyList.add(defaultStrategy);
+
+	}
 
 }

@@ -1,3 +1,6 @@
+import com.example.jl.softstock2014.Portfolio;
+import com.example.jl.softstock2014.Stock;
+
 public class Setup {
 
 	

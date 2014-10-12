@@ -14,7 +14,7 @@ public final class StockDataInterface {
 	
 	// Constructor to initialise fields and add some stocks to the list we can choose from
 	 
-private StockDataInterface () {
+private static void setUp() {
 	
 	 stocks = new ArrayList<String>(); // initialise list of stocks
 
@@ -45,6 +45,7 @@ private StockDataInterface () {
  */
 public static  double getCurrentPrice() {
 	
+	setUp();
 	
 	return rand.nextDouble() * 100; // return a random value between 0 and 1, times 100
 }
@@ -52,6 +53,8 @@ public static  double getCurrentPrice() {
 /* return the date of the stock data query
  */
 public static Date returnDate () {
+	
+	setUp();
 	
 	today = new Date(); // get todays date 
 	
@@ -61,6 +64,8 @@ public static Date returnDate () {
 /* Test if a given stock exists in the stocks we can search for 
  */
 public static boolean doesExist (String inStock) {
+	
+	setUp();
 	
 	boolean test = false; // test variable
 	

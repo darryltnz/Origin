@@ -34,6 +34,9 @@ public class TradingStrategyController {
 	public static boolean createTradingStrategy(String name, String username,
 			ArrayList<String> ruleList) {
 		
+		initialise();
+		
+		
 		UserAccount user = UserAccountController.returnAccount(username);
 
 		// Check rules are all valid
@@ -64,7 +67,9 @@ public class TradingStrategyController {
 
 	public static boolean createDefaultTradingStrategy(String name,
 			ArrayList<String> ruleList) {
-
+		
+		initialise();
+		
 		// Check ts name is unique
 		boolean uniqueName = true;
 
@@ -90,7 +95,9 @@ public class TradingStrategyController {
 	// Returns a list of strategies available to a user
 	public static ArrayList<TradingStrategy> getAvailableStrategies(
 			String username) {
-
+		
+		initialise();
+		
 		UserAccount user = UserAccountController.returnAccount(username);
 		
 		ArrayList<TradingStrategy> available = new ArrayList<TradingStrategy>();
@@ -114,11 +121,14 @@ public class TradingStrategyController {
 	
 public static TradingStrategy returnDefault() {
 	
+	initialise();
 	
 	return defaultStrategy;
 }
 
 public static TradingStrategy returnStrategy(String name) {
+	
+	initialise();
 	
 	TradingStrategy output = null;
 	
@@ -132,6 +142,13 @@ public static TradingStrategy returnStrategy(String name) {
 	}
 
 return output;
+}
+
+public static void initialise() {
+	
+	strategyList.add(defaultStrategy);
+	strategyList.add(defaultStrategy);
+	
 }
 
 }

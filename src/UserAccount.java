@@ -111,8 +111,6 @@ public void sellStock(String symbol, String portfolio, int amount) {
  */
 public ArrayList<String> getAvailabeStrategies() {
 	
-	
-	
 	ArrayList<String> output = new ArrayList<String>();
 	
 	for(TradingStrategy ts : TradingStrategyController.getAvailableStrategies(username) ) {
@@ -164,6 +162,22 @@ public void setStrategy (String portfolio, String strat, ArrayList<String> rules
 	}
 	
 }
+/* Test method to see if a portfolio exists in an account
+ */
+public boolean findPortfolio(String port) {
+	
+	for (Portfolio p : portfolios) {
+		
+		if(p.getName().equals(port)) {
+			
+			return true;
+		}
+		
+	}
+
+	return false;
+
+}
 
 // get methods for the fields
 public String getPlayerName() {
@@ -196,4 +210,29 @@ public double getGainLoss() {
 	return gainLoss;
 }
 
+public int getUID() {
+	
+	return UID;
+}
+
+/* Method to return the name of the trading strategy set for a given portfolio
+ */
+public String getStrategyName(String portfolio) {
+	
+	String output = null;
+	
+	for(Portfolio p : portfolios) {
+		
+		if(p.getName().equals(portfolio)) {
+			
+			TradingStrategy ts = p.getTradingStrategy();
+			
+			if(ts != null) {
+			output = ts.getName();
+			}
+		}
+	}
+
+return output;
+}
 }

@@ -78,7 +78,7 @@ public void setStrategy(String newStrat,String username, ArrayList<String> ruleL
 	
 }
 
-/* Method to update the trading strategy for the portfolio 
+/* Method to update the trading strategy for the portfolio. 
  */
 public void updateStrategy(String strat, String user) {
 	

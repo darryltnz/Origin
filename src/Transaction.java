@@ -24,8 +24,6 @@ public Transaction(String symbol, int amount, double priceIn, Date inDate) {
 	quantity = amount; // set the transaction quantity
 	
 	price = priceIn;	// set the price for the transaction
-
-	date = inDate; // Set the date for the transaction
 }
 
 // Get the stock id of the transaction

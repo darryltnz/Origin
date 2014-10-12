@@ -86,7 +86,7 @@ public class StockTest {
 // more work to come here so better testing to be developed, just a place holder really as current iteration just has a random number for price
 // So this will multiply the quantity by the Price
 		
-		StockDataInterface.setup();
+		
 		 
 		assertTrue("Ensure a value is created  ",testStock1.calculateValue() >=1 );
 		

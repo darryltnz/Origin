@@ -18,7 +18,7 @@ public Stock(Transaction initialTrans) {
 	
 	stockID = initialTrans.getStockID(); // set the stocks name from the input transaction
 	
-	transactionList = new ArrayList<Transaction>(); // create the list
+	transactionList = new ArrayList <Transaction>();
 	
 	transactionList.add(initialTrans); // add the transaction to the list of transactions for the stock
 	
@@ -61,6 +61,11 @@ if (quantity >= amount) {
 	
 }
 
+public void setQuantity(int amount) {
+	
+	quantity += amount;
+}
+
 // get methods for fields
 public String getStockID() {
 	
@@ -101,8 +106,16 @@ public double calculateCost() {
 	
 	for(Transaction t : transactionList) { // go through all the transactions for the stock
 		
+		if(t.getQuantity() > 0) { // if the transaction was not a sale.
 		
 		value += (t.getPrice() * t.getQuantity()); // add the price paid in each transaction
+		
+		}
+		
+		else { // if the transaction was a sale
+			
+			value += (t.getPrice() * (t.getQuantity() * -1)); // add the price that each stock sold times the positive quantity of sold stocks
+		}
 	}
 	
 	return value; // return the average

@@ -44,17 +44,14 @@ public final class UserAccountController {
 				System.out.println("Invalid username or password.");
 				
 				return false;
-				
 			}
 		}
 		
 		else { // if the user name is not in the collection 
 			
 			System.out.println("User not found."); // display an error message
-			
-			return false;
 		}
-		
+		return false;
 	
 	}
 	
@@ -73,40 +70,5 @@ public static UserAccount returnAccount(String username) {
 	}
 	
 }
-
-    /**
-     * validate username. Must be between 4 and 10
-     * @param username
-     * @return
-     */
-    static boolean validUserName(String username) {
-
-        if (username.length() < 3 || username.length() > 10) {
-
-            return false;
-
-        } else {
-
-            return false;
-        }
-    }
-
-    /**
-     * validate password. Must be between 4 and 10
-     * @param password
-     * @return
-     */
-    static boolean validPassword(String password){
-
-        if (password.length()<3 || password.length()>10) {
-
-            return false;
-
-        }else{
-
-            return  true;
-
-        }
-    }
 
 }

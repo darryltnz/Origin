@@ -30,34 +30,33 @@ public final class PurchasingController {
 				return; // exit the method
 				
 			}
-			
-			else { // otherwise the stock is not already in the portfolio
 		
-		Transaction newBuy = new Transaction(inStockID, amount, value, today); // make a new transaction based on the input values
+		}
+		
+		 Transaction newBuy = new Transaction(inStockID, amount, value, today); // make a new transaction based on the input values
 		
 		 Stock newStock = new Stock(newBuy); // make a new stock object from the new transaction
 				
 		myPort.addStock(newStock); // add the new stock to the portfolio
 		
-				
-	   }
-		
-		}
-		
+		return;
 	}
     /* Method to sell and/or remove the given amount of stock from an input portfolio, at a given rate
      * by calling the purchasestock method but with a negative value, so if there will still be a
      * positive quantity of the stock amount after the transaction
      */
-	public static void sellStock (String inStockID, Portfolio myPort, int amount, double value) {
-		
-		value = (value * -1);
+	public static void sellStock (String inStockID, Portfolio myPort, int amount, double inValue) {
+			
 		
 		for(Stock s : myPort.listOfStocks) { // find the stock in the portfolio to remove the quantity from
 		
 			if (s.getStockID().equals(inStockID)) { // if the stock exists in the portfolio
 		
 			if(  s.getQuantity() > amount) { // if the amount to sell is less than the amount of stock the user owns
+				
+				amount = amount * -1; // set the values for the transaction to be negative
+				
+				double value = (inValue * -1);
 				
 			 purchaseStock(inStockID, myPort, amount, value);
 				

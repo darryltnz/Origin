@@ -1,3 +1,5 @@
+package com.example.jl.softstock2014;
+
 import java.util.Date; // import the use of date objects
 
 /*  PurchasingController class that will handle transactions of stocks from a provided portfolio.

@@ -1,3 +1,5 @@
+package com.example.jl.softstock2014;
+
 import java.util.ArrayList; //import the use of ArrayLists
 
 import java.util.Date; // import the use of Date objects

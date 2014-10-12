@@ -1,9 +1,13 @@
-	import java.util.*; // import utilities
+package com.example.jl.softstock2014;
+
+import android.app.Application;
+
+import java.util.*; // import utilities
 
 	/* Class to handle the storage, creation and retrieval of user accounts 
 	 * specified by a unique user id
 	 */
-public final class UserAccountController {
+public final class UserAccountController{
 
 	private static int UID = 0; // set the user id incremental field for each instance of an account at zero
 	
@@ -70,5 +74,14 @@ public static UserAccount returnAccount(String username) {
 	}
 	
 }
+
+        public static void  updateAccount(UserAccount account){
+
+
+            if(accountMap.containsKey(account.getUsername()))
+            accountMap.put(account.getUsername(),account);
+            else return;
+
+        }
 
 }

@@ -1,3 +1,7 @@
+package com.example.jl.softstock2014;
+
+import com.example.jl.softstock2014.UserAccount;
+
 import java.util.ArrayList;
 
 /*

@@ -1,3 +1,5 @@
+package com.example.jl.softstock2014;
+
 import java.util.ArrayList;
 
 /*

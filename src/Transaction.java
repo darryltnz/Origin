@@ -1,3 +1,5 @@
+package com.example.jl.softstock2014;
+
 import java.util.Date; // import the use of date objects
 
 /* Transaction class that symbolizes a snapshot purchase of a given stock by recording

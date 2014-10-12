@@ -1,4 +1,6 @@
-import java.util.ArrayList; // import the use of arrayLists 
+package com.example.jl.softstock2014;
+
+import java.util.ArrayList; // import the use of arrayLists
 
 
 /*Class to represent a stock. Our stock objects are defined by the name, the quantity of 
@@ -108,13 +110,13 @@ public double calculateCost() {
 		
 		if(t.getQuantity() > 0) { // if the transaction was not a sale.
 		
-		value += (t.getPrice() * t.getQuantity()); // add the price paid in each transaction
+		value += (double) (t.getPrice() * t.getQuantity()); // add the price paid in each transaction
 		
 		}
 		
 		else { // if the transaction was a sale
 			
-			value += (t.getPrice() * (t.getQuantity() * -1)); // add the price that each stock sold times the positive quantity of sold stocks
+			value += (double) (t.getPrice() * (t.getQuantity() * -1)); // add the price that each stock sold times the positive quantity of sold stocks
 		}
 	}
 	

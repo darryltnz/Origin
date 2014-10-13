@@ -23,6 +23,8 @@ public class Transaction {
 		quantity = amount;
 
 		price = priceIn;
+		
+		date = inDate;
 	}
 
 	public String getStockID() {

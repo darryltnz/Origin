@@ -10,7 +10,7 @@ public class UserAccountTest {
 	
 	Portfolio testPort;
 	
-
+ // Set up the test by having a newly initialised account
 	@Before
 	public void setUp() throws Exception {
 	
@@ -20,6 +20,7 @@ public class UserAccountTest {
 	
 	}
 
+	// Ensure the constructor has created a valid object with fields correctly assigned 
 	@Test
 	public void testUserAccount() {
 		
@@ -39,6 +40,7 @@ public class UserAccountTest {
 	
 	}
 
+	// Ensure a portfolio can be created and added to the  account
 	@Test
 	public void testCreatePortfolio() {
 		
@@ -48,31 +50,32 @@ public class UserAccountTest {
 		
 	}
 
+	// Ensure the account can buy stock for the specified portfolio
 	@Test
 	public void testBuyStock() {
 		
 		boolean test = false;
 		
-		testAccount.createPortfolio("testPort");
+		testAccount.createPortfolio("testPort"); // create a test portfolio
 		
-		testAccount.buyStock("IBM", "testPort", 10);
+		testAccount.buyStock("IBM", "testPort", 10); // buy some stock
 		
-		Stock testStock = null;
+		Stock testStock = null; // Stock variable for testing
 		
-		for (Portfolio p : testAccount.portfolios) {
+		for (Portfolio p : testAccount.portfolios) { // go through the specified portfolio
 			
 			
-		 testStock = p.getStock("IBM");
+		 testStock = p.getStock("IBM"); // get the stock just created
 			
-			if(testStock != null) {
+			if(testStock != null) { // if the stock if the one created
 				
-				test = true;
+				test = true; // the test is true
 				
-				break;
+				break; // stop iterating through the portfolio
 			}
 			
 		}
-		
+		// Ensure the stock brought  is the one specified and at the correct quantity and that the balance of the account has reduced as a result.
 		assertTrue(test);
 		
 		assertEquals("IBM", testStock.getStockID());
@@ -83,25 +86,27 @@ public class UserAccountTest {
 		
 	}
 
+	// Ensure the account can sell stock
 	@Test
 	public void testSellStock() {
 		
         boolean test = false;
 		
+        // set up an account and portfolio
 		testAccount.createPortfolio("testPort");
 		
 		testAccount.buyStock("IBM", "testPort", 10);
 		
-		testAccount.sellStock("IBM", "testPort", 5);
+		testAccount.sellStock("IBM", "testPort", 5); // sell half the stock just purchased
 		
 		Stock testStock = null;
 		
-		for (Portfolio p : testAccount.portfolios) {
+		for (Portfolio p : testAccount.portfolios) { // iterate through the stocks in the portfolio
 			
-			
+			// get the sold stock
 			 testStock = p.getStock("IBM");
 				
-				if(testStock != null) {
+				if(testStock != null) { // make sure it is there
 					
 					test = true;
 					
@@ -109,6 +114,7 @@ public class UserAccountTest {
 				}
 				
 			}
+		// ensure that the right amount of the correct stock was sold
 		assertTrue(test);
 		
 		assertEquals("IBM", testStock.getStockID());
@@ -118,7 +124,7 @@ public class UserAccountTest {
 		
 		
 	}
-	
+	// make sure that an ArrayList of the trading strategy types available for the account can be retrieved 
 	@Test
 	public void testGetAvailabeStrategies() {
 		
@@ -131,30 +137,30 @@ public class UserAccountTest {
 		
 		
 	}
-	
+	// Make sure a Trading strategy can be assigned a portfolio in the account
 	@Test
 	public void testUpdateStrategy() {
 		
-		testAccount.createPortfolio("testPort");
+		testAccount.createPortfolio("testPort"); // make a new portfolio
 		
-		testAccount.updateStrategy("testPort", "default");
+		testAccount.updateStrategy("testPort", "default"); // update the portfolios trading strategy to be the default strategy
 		
-		assertEquals("default", testAccount.getStrategyName("testPort"));
+		assertEquals("default", testAccount.getStrategyName("testPort")); // make sure the update occurred
 		
 		
 	}
-	
+	// Ensure a new strategy can be created and set for a given portfolio
 	@Test
 	public void testSetStrategy() {
 		
-		ArrayList<String> rules = new ArrayList<String>();
+		ArrayList<String> rules = new ArrayList<String>(); // make some new strategy rules
 		
-        testAccount.createPortfolio("testPort");
+        testAccount.createPortfolio("testPort2"); // create a new portfolio
 		
-		testAccount.setStrategy("testPort", "testStrat", rules);
+		testAccount.setStrategy("testPort2", "testStrat2", rules); // set the new strategy
 		
 		
-		assertEquals("testStrat", testAccount.getStrategyName("testPort"));
+		assertEquals("testStrat2", testAccount.getStrategyName("testPort2")); // ensure this has happened
 		
 		
 		
@@ -164,7 +170,7 @@ public class UserAccountTest {
 	}
 	
 
-
+// Make sure the trafing strategy name can be retrieved for a specified portfolio
 	@Test
 	public void testgetStrategyName() {
 		

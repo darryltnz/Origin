@@ -8,15 +8,15 @@ import java.util.Date; // import the use of Date objects
 
 public class PortfolioTest {
 	
-	private Portfolio testPort;
+	private Portfolio testPort; // test portfolio
 	
-	private Stock testStock;
+	private Stock testStock; // test stock
 	
-	private Transaction testTrans;
+	private Transaction testTrans; // test transaction
 	
-	private Date today = new Date();
+	private Date today = new Date(); // make a new date
 	
-
+// initialise the portfolio by making a new transaction, a new stock and adding it to the portfolio
 	@Before
 	public void setUp() throws Exception {
 	
@@ -30,7 +30,7 @@ public class PortfolioTest {
 	
 	
 	}
-
+// make sure the constructor returns a valid object of the name specified upon creation, with the correct user id
 	@Test
 	public void testPortfolio() {
 		
@@ -40,14 +40,14 @@ public class PortfolioTest {
 		
 		assertEquals(1, testPort.getUserID());
 	}
-
+// Ensure that the created stock in the portfolio can be seen to exist on investigation
 	@Test
 	public void testDoesExist() {
 		
 		assertEquals(true, testPort.doesExist(testStock.getStockID()));
 		
 	}
-
+// Ensure the portfolio can create a stock object and add it
 	@Test
 	public void testCreateStock() {
 		
@@ -58,44 +58,45 @@ public class PortfolioTest {
 		
 		
 	}
-
+// Ensure a new strategy can be added to the portfolio
 	@Test
 	public void testSetStrategy() {
 		
-	ArrayList<String> testRules = new ArrayList<String>();
+	ArrayList<String> testRules = new ArrayList<String>(); // make new strategy rules
 		
-	testPort.setStrategy("test strategy", "admin", testRules);
+	testPort.setStrategy("test strategy", "admin", testRules); // set the new strategy
 	
-	TradingStrategy tester = testPort.getTradingStrategy();
+	TradingStrategy tester = testPort.getTradingStrategy(); // get the portfolio
 	
 	
-	assertEquals("test strategy", tester.getName());
+	assertEquals("test strategy", tester.getName()); // make sure the name of the strategy is correct
 	
 	}
 
+	// Ensure the strategy for the portfolio can be updated to the default in this case
 	@Test
 	public void testUpdateStrategy() {
 		
-		testPort.updateStrategy("default", "admin");
+		testPort.updateStrategy("default", "admin"); // update the strategy 
 		
-		TradingStrategy tester = testPort.getTradingStrategy();
+		TradingStrategy tester = testPort.getTradingStrategy(); // get the portfolio
 		
 		
-		assertEquals("default", tester.getName());
+		assertEquals("default", tester.getName()); // make sure the default strategy is set
 		
 	}
-
+//Make sure a stock in the portfolio can be retrieved 
 	@Test
 	public void testGetStock() {
 		
-	Stock tester = testPort.getStock("IBM");
+	Stock tester = testPort.getStock("IBM"); // get the stock added on initialization
 	
-	assertNotNull(tester);
+	assertNotNull(tester); // ensure it is valid and is the stock added
 	
 	assertEquals("IBM", tester.getStockID());
 	
 	}
-
+// make sure the stock list can add a new stock
 	@Test
 	public void testAddStock() {
 		

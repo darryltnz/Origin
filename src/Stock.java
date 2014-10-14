@@ -1,6 +1,5 @@
-package com.example.jl.softstock2014;
 
-import java.util.ArrayList; // import the use of arrayLists
+import java.util.ArrayList; 
 
 /*Class to represent a stock. Our stock objects are defined by the name, the quantity of 
  * that stock the user currently has and a list of transactions for that stock type

@@ -1,7 +1,3 @@
-package com.example.jl.softstock2014;
-
-import android.app.Application;
-
 import java.util.*; // import utilities
 
 /* Class to handle the storage, creation and retrieval of user accounts 

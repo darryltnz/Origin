@@ -1,5 +1,3 @@
-package com.example.jl.softstock2014;
-
 import java.io.Serializable;
 import java.util.ArrayList; // import the use of ArrayLists
 

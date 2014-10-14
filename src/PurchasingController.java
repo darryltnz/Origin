@@ -1,5 +1,3 @@
-package com.example.jl.softstock2014;
-
 import java.util.Date;
 
 /*  PurchasingController class that will handle transactions of stocks from a provided portfolio.

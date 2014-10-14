@@ -1,5 +1,3 @@
-package com.example.jl.softstock2014;
-
 import java.util.Date;
 
 /* Symbolizes a snapshot purchase of a given stock by recording

@@ -1,6 +1,3 @@
-package com.example.jl.softstock2014;
-
-import com.example.jl.softstock2014.UserAccount;
 
 import java.util.ArrayList;
 
@@ -19,18 +16,18 @@ public class TradingStrategy {
 		ruleList = rl;
 	}
 
-	//Constructor for "default" strategy - not attached to specific user	
+	// Constructor for "default" strategy - not attached to specific user
 	public TradingStrategy(String n, ArrayList<String> rl) {
 		name = n;
 		user = null;
 		ruleList = rl;
 	}
-	
-	public String getName(){
+
+	public String getName() {
 		return name;
 	}
-	
-	public UserAccount getUserAccount(){
+
+	public UserAccount getUserAccount() {
 		return user;
 	}
 

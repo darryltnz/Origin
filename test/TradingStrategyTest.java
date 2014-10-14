@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class TradingStrategyTest {
 
+	// trading strategies, user account and rule list for testing
 	TradingStrategy tsOne;
 	
 	TradingStrategy tsTwo;
@@ -15,7 +16,7 @@ public class TradingStrategyTest {
 	UserAccount user;
 	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws Exception { // initialise values for test objects before each test
 	
 		rules = new ArrayList<String>();
 		
@@ -29,7 +30,7 @@ public class TradingStrategyTest {
 	
 	
 	}
-
+// test constructor creates a valid object
 	@Test
 	public void testTradingStrategyStringUserAccountArrayListOfString() {
 		
@@ -38,6 +39,7 @@ public class TradingStrategyTest {
 		assertEquals("testOne", tsOne.getName());
 	}
 
+	// test constructor creates a valid object
 	@Test
 	public void testTradingStrategyStringArrayListOfString() {
 		
